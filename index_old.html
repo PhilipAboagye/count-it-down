@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Countdown Settings</title>
+    <!-- Load Tailwind for modern, responsive utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-[#121212] flex flex-col items-center justify-center min-h-screen p-4 font-sans">
+
+    <!-- Main Container: Dark Mode, Glassmorphism, and Centered -->
+    <div id="app-container" class="bg-gray-800/50 backdrop-blur-md rounded-3xl p-8 shadow-2xl w-full max-w-lg transition-all duration-500 border border-gray-700">
+        
+        <h1 class="text-3xl font-light text-white mb-8 text-center tracking-wider">Countdown Controller</h1>
+
+        <!-- ---------------------------------------------------- -->
+        <!-- 1. SETTINGS PANEL (Visible by default) -->
+        <!-- ---------------------------------------------------- -->
+        <div id="settings-panel" class="space-y-6">
+            
+            <!-- NEW: Event Title Input -->
+            <div>
+                <label for="event-title" class="text-gray-300 mb-2 text-sm font-medium">Event Title (Optional)</label>
+                <input type="text" id="event-title" placeholder="e.g., Next Speaker: John Doe"
+                       class="w-full text-center text-lg font-mono p-3 rounded-xl bg-gray-700 border-2 border-gray-600 focus:border-[#00FFC0] text-white transition duration-200 shadow-inner">
+            </div>
+
+            <h2 class="text-xl font-bold text-[#00FFC0] border-b border-[#00FFC0]/30 pb-2">Set Duration</h2>
+            
+            <div class="flex space-x-4 items-center justify-center">
+                <!-- Minutes Input -->
+                <div class="flex flex-col items-center w-1/2">
+                    <label for="input-minutes" class="text-gray-300 mb-2 text-sm font-medium">Minutes</label>
+                    <input type="number" id="input-minutes" value="15" min="0" max="999"
+                           class="w-full text-center text-3xl font-mono p-3 rounded-xl bg-gray-700 border-2 border-gray-600 focus:border-[#00FFC0] text-white transition duration-200 shadow-inner appearance-none">
+                </div>
+
+                <!-- Seconds Input -->
+                <div class="flex flex-col items-center w-1/2">
+                    <label for="input-seconds" class="text-gray-300 mb-2 text-sm font-medium">Seconds</label>
+                    <input type="number" id="input-seconds" value="0" min="0" max="59"
+                           class="w-full text-center text-3xl font-mono p-3 rounded-xl bg-gray-700 border-2 border-gray-600 focus:border-[#00FFC0] text-white transition duration-200 shadow-inner appearance-none">
+                </div>
+            </div>
+
+            <!-- Start Button -->
+            <button id="start-btn" 
+                    class="w-full py-4 rounded-xl bg-[#00FFC0] text-[#121212] font-extrabold text-lg flex items-center justify-center space-x-2 shadow-lg hover:shadow-[#00FFC0]/50 transition duration-300 transform hover:scale-[1.02]">
+                <span class="material-icons text-xl">play_circle_outline</span>
+                <span>START COUNTDOWN & OPEN DISPLAY</span>
+            </button>
+        </div>
+
+        <!-- ---------------------------------------------------- -->
+        <!-- 2. STATUS DISPLAY (Shows current time and controls) -->
+        <!-- ---------------------------------------------------- -->
+        <div id="status-panel" class="mt-8 pt-6 border-t border-gray-700">
+            <h2 class="text-xl font-bold text-gray-300 mb-4 text-center">Current Status</h2>
+            
+            <!-- Local Time Display -->
+            <div id="local-timer-display" class="timer flex justify-center items-center text-6xl font-mono text-white mb-4">
+                <!-- Time parts injected here -->
+            </div>
+
+            <!-- NEW: On-the-fly Controls -->
+            <div id="adjust-controls" class="flex justify-center space-x-4 mb-6">
+                <button id="add-time-btn"
+                        class="px-4 py-2 rounded-lg bg-green-600/50 text-white font-semibold text-sm hover:bg-green-600 transition duration-200">
+                    + 1 Min
+                </button>
+                 <button id="subtract-time-btn"
+                        class="px-4 py-2 rounded-lg bg-red-600/50 text-white font-semibold text-sm hover:bg-red-600 transition duration-200">
+                    - 30 Sec
+                </button>
+            </div>
+
+            <!-- Main Controls (Play/Pause/Stop) -->
+            <div id="controls" class="flex justify-center space-x-6">
+                
+                <button id="control-btn" data-action="play"
+                        class="p-4 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition duration-200 transform hover:scale-105">
+                    <span class="material-icons text-3xl">play_arrow</span>
+                </button>
+                
+                <button id="reset-btn" data-action="reset"
+                        class="p-4 rounded-full bg-red-600 text-white shadow-lg hover:bg-red-700 transition duration-200 transform hover:scale-105">
+                    <span class="material-icons text-3xl">replay</span>
+                </button>
+                
+                <button id="open-display-btn" 
+                        class="p-4 rounded-full bg-purple-600 text-white shadow-lg hover:bg-purple-700 transition duration-200 transform hover:scale-105">
+                    <span class="material-icons text-3xl">open_in_new</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- The script now handles all the logic -->
+    <script src="controlScript.js"></script> 
+    
+    <!-- Tawk.to Script remains at the end -->
+<script type"text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/66730d9619f6c616eadc0049/1i0omq62v';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+</body>
+</html>

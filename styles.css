@@ -1,0 +1,59 @@
+/* Global Reset and Utility Styles */
+body {
+    background-color: #121212;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Custom styling for the *local* timer display in index.html */
+#local-timer-display .timer__part {
+    font-size: 4rem; /* Base size */
+    font-weight: 300;
+    margin: 0 5px;
+}
+
+#local-timer-display .timer__part:nth-child(2) {
+    color: #4B5563; /* Darker colon for contrast */
+}
+
+/* Hide arrow buttons on number inputs for cleaner look */
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* Mobile adjustments */
+@media (max-width: 640px) {
+    #local-timer-display .timer__part {
+        font-size: 3rem;
+    }
+}
+
+/* NEW: Urgency styles for the main display (display.html).
+   These are placed here to keep all CSS in one file,
+   but they only affect display.html.
+*/
+.timer--warning {
+    color: #ef4444 !important; /* red-500 */
+    animation: pulse 1s infinite;
+}
+.timer--warning .timer__part--milliseconds {
+    color: #ef4444 !important;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.6; }
+}
+
